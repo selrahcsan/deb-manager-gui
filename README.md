@@ -1,12 +1,12 @@
 # Instalador APT com Interface Gráfica
 
-Este é um instalador gráfico simples feito em Python usando **Tkinter**, que permite instalar pacotes `.deb` ou pacotes APT diretamente via nome, com barra de progresso e status.
+Este é um instalador gráfico simples feito em Python usando ~~**Tkinter**~~ PyQT, que permite instalar pacotes `.deb` ou pacotes APT diretamente via nome, com barra de progresso e status.
 
-![screenshot](imgs/01.png) <!-- você pode colocar um link para um print da interface aqui -->
+![screenshot](imgs/02.png) <!-- você pode colocar um link para um print da interface aqui -->
 
 ## 🛠️ Funcionalidades
 
-- Interface gráfica amigável usando `tkinter`
+- Interface gráfica amigável usando ~~tkinter~~ `QT5`
 - Instala pacotes do repositório APT via nome (`apt install`)
 - Exibe progresso simulado e status textual durante a instalação
 - Usa `sudo`, portanto, exige privilégios de administrador
@@ -17,10 +17,7 @@ Este é um instalador gráfico simples feito em Python usando **Tkinter**, que p
 - Python 3.x
 - Sistema baseado em Debian/Ubuntu
 - Dependências Python (geralmente já incluídas):
-  - `tkinter`
-  - `ttk`
-  - `subprocess`
-  - `threading`
+  - `PyQT`
 
 ## 🚀 Como usar
 
