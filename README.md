@@ -9,7 +9,7 @@ Este é um instalador gráfico simples feito em Python usando ~~**Tkinter**~~ Py
 - Interface gráfica amigável usando ~~tkinter~~ `QT5`
 - Instala pacotes do repositório APT via nome (`apt install`)
 - Exibe progresso simulado e status textual durante a instalação
-- Usa `sudo`, portanto, exige privilégios de administrador
+- Usa ~~sudo~~`pkexec`, portanto, exige privilégios de administrador;
 - Mostra mensagens de sucesso ou erro após a instalação
 
 ## 📦 Requisitos
@@ -32,8 +32,6 @@ Este é um instalador gráfico simples feito em Python usando ~~**Tkinter**~~ Py
 - Mostrar uma janela com barra de progresso e status
 - Personalizar a mensagem de instação com argumento --tx
 - Instalação de 2 pacotes ou mais pacotes
-
-
 
 ## 🚀 Como usar
 
