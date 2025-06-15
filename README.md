@@ -17,12 +17,38 @@ Este é um instalador gráfico simples feito em Python usando ~~**Tkinter**~~ Py
 - Python 3.x
 - Sistema baseado em Debian/Ubuntu
 - Dependências Python (geralmente já incluídas):
-  - `PyQT`
+  - `PyQT` -> `sudo apt install python3-pyqt5`
+
+## ⚙️ Recursos incluídos:
+
+- Instalação automática ao iniciar
+- Interface Qt (PyQt5)
+- Barra de progresso
+- Notificação ao final
+
+🚧 Recurso em processso de implementação:
+
+- Detectar o modo (instalar ou remover), com argumentos --in (instalar) --rm (remover)
+- Mostrar uma janela com barra de progresso e status
+- Personalizar a mensagem de instação com argumento --tx
+- Instalação de 2 pacotes ou mais pacotes
+
+
 
 ## 🚀 Como usar
 
 Execute o script via terminal, passando o nome do pacote a ser instalado:
 
+### 🔗 Clone o repositório
+
 ```bash
-sudo python3 deb-install-gui.py <nome-do-pacote>
+git clone https://github.com/selrahcsan/deb-manager-gui.git
+cd deb-manager-gui
+```
+
+### 🏃‍➡️ Execute o script via terminal, passando o nome do pacote a ser instalado:
+
+Exemplo:
+```bash
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY python3 $PWD/deb-install-gui.py htop
 ```
