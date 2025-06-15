@@ -37,8 +37,6 @@ Este é um instalador gráfico simples feito em Python usando ~~**Tkinter**~~ Py
 
 ## 🚀 Como usar
 
-Execute o script via terminal, passando o nome do pacote a ser instalado:
-
 ### 🔗 Clone o repositório
 
 ```bash
