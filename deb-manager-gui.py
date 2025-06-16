@@ -75,7 +75,7 @@ class InstallerWindow(QWidget):
 
 def main():
     if len(sys.argv) != 2:
-        print("Uso: deb-install-gui-qt6.py <nome-do-pacote>")
+        print("Uso: deb-install-gui.py <nome-do-pacote>")
         sys.exit(1)
 
     package = sys.argv[1]
