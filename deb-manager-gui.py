@@ -1,9 +1,9 @@
 import sys
 import subprocess
-from PyQt5.QtWidgets import (
+from PyQt6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QLabel, QProgressBar, QMessageBox
 )
-from PyQt5.QtCore import Qt, QThread, pyqtSignal
+from PyQt6.QtCore import Qt, QThread, pyqtSignal
 
 
 class AptInstaller(QThread):
@@ -17,7 +17,7 @@ class AptInstaller(QThread):
     def run(self):
         try:
             cmd = ['sudo', 'apt', 'install', '-y', self.package_name]
-            process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, universal_newlines=True)
+            process = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
 
             for line in process.stdout:
                 print(line.strip())
@@ -51,7 +51,7 @@ class InstallerWindow(QWidget):
         layout = QVBoxLayout()
 
         self.label = QLabel(f"Instalando o pacote: {package_name}")
-        self.label.setAlignment(Qt.AlignCenter)
+        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(self.label)
 
         self.progress_bar = QProgressBar()
@@ -60,7 +60,6 @@ class InstallerWindow(QWidget):
 
         self.setLayout(layout)
 
-        # Começa a instalação imediatamente
         self.installer = AptInstaller(package_name)
         self.installer.progress.connect(self.progress_bar.setValue)
         self.installer.finished.connect(self.on_finished)
@@ -76,14 +75,14 @@ class InstallerWindow(QWidget):
 
 def main():
     if len(sys.argv) != 2:
-        print("Uso: deb-install-gui-qt.py <nome-do-pacote>")
+        print("Uso: deb-install-gui-qt6.py <nome-do-pacote>")
         sys.exit(1)
 
     package = sys.argv[1]
     app = QApplication(sys.argv)
     window = InstallerWindow(package)
     window.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
 
 
 if __name__ == "__main__":
