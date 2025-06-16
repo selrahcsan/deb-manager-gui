@@ -1,12 +1,12 @@
 # Instalador APT com Interface Gráfica
 
-Este é um instalador gráfico simples feito em Python usando ~~**Tkinter**~~ PyQT, que permite instalar pacotes `.deb` ou pacotes APT diretamente via nome, com barra de progresso e status.
+Este é um instalador gráfico simples feito em Python usando ~~**Tkinter**~~ **PyQT**, que permite instalar pacotes `.deb` ou pacotes APT diretamente via nome, com barra de progresso e status.
 
 ![screenshot](imgs/02.png) <!-- você pode colocar um link para um print da interface aqui -->
 
 ## 🛠️ Funcionalidades
 
-- Interface gráfica amigável usando ~~tkinter~~ `QT5`
+- Interface gráfica amigável usando ~~tkinter~~ ~~QT5~~`QT6`
 - Instala pacotes do repositório APT via nome (`apt install`)
 - Exibe progresso simulado e status textual durante a instalação
 - Usa ~~sudo~~`pkexec`, portanto, exige privilégios de administrador;
@@ -19,10 +19,10 @@ Este é um instalador gráfico simples feito em Python usando ~~**Tkinter**~~ Py
 - Dependências Python (geralmente já incluídas):
   - `PyQT` -> `sudo apt install python3-pyqt5`
 
-## ⚙️ Recursos incluídos:
+## ⚙️ Recursos incluídos
 
 - Instalação automática ao iniciar
-- Interface Qt (PyQt5)
+- Interface Qt (PyQt6)
 - Barra de progresso
 - Notificação ao final
 
@@ -42,9 +42,10 @@ git clone https://github.com/selrahcsan/deb-manager-gui.git
 cd deb-manager-gui
 ```
 
-### 🏃‍➡️ Execute o script via terminal, passando o nome do pacote a ser instalado:
+### 🏃‍➡️ Execute o script via terminal, passando o nome do pacote a ser instalado
 
-Exemplo:
+Exemplo de uso:
+
 ```bash
 pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY python3 $PWD/deb-manager-gui.py htop
 ```
