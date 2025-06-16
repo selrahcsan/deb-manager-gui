@@ -46,5 +46,5 @@ cd deb-manager-gui
 
 Exemplo:
 ```bash
-pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY python3 $PWD/deb-install-gui.py htop
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY python3 $PWD/deb-manager-gui.py htop
 ```
