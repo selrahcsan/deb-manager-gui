@@ -2,7 +2,7 @@
 
 Este é um instalador gráfico simples feito em Python usando ~~**Tkinter**~~ **PyQT**, que permite instalar pacotes `.deb` ou pacotes APT diretamente via nome, com barra de progresso e status.
 
-![screenshot](imgs/02.png) <!-- você pode colocar um link para um print da interface aqui -->
+![screenshot](imgs/03.png) <!-- você pode colocar um link para um print da interface aqui -->
 
 ## 🛠️ Funcionalidades
 
