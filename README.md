@@ -9,15 +9,16 @@ Este é um instalador gráfico simples feito em Python usando ~~**Tkinter**~~ **
 - Interface gráfica amigável usando ~~tkinter~~ ~~QT5~~`QT6`
 - Instala pacotes do repositório APT via nome (`apt install`)
 - Exibe progresso simulado e status textual durante a instalação
-- Usa ~~sudo~~`pkexec`, portanto, exige privilégios de administrador;
+- Usa ~~sudo~~`pkexec`, portanto, exige privilégios de administrador
 - Mostra mensagens de sucesso ou erro após a instalação
-
+- Personalização da mensagem da interface com `--tx`
+  
 ## 📦 Requisitos
 
 - Python 3.x
 - Sistema baseado em Debian/Ubuntu
 - Dependências Python (geralmente já incluídas):
-  - `PyQT` -> `sudo apt install python3-pyqt5`
+  - `PyQT` -> `sudo apt install python3-pyqt6`
 
 ## ⚙️ Recursos incluídos
 
@@ -26,13 +27,6 @@ Este é um instalador gráfico simples feito em Python usando ~~**Tkinter**~~ **
 - Barra de progresso
 - Notificação ao final
 
-🚧 Recurso em processso de implementação:
-
-- Detectar o modo (instalar ou remover), com argumentos --in (instalar) --rm (remover)
-- Mostrar uma janela com barra de progresso e status
-- Personalizar a mensagem de instação com argumento --tx
-- Instalação de 2 pacotes ou mais pacotes
-
 ## 🚀 Como usar
 
 ### 🔗 Clone o repositório
@@ -40,6 +34,7 @@ Este é um instalador gráfico simples feito em Python usando ~~**Tkinter**~~ **
 ```bash
 git clone https://github.com/selrahcsan/deb-manager-gui.git
 cd deb-manager-gui
+chmod +x deb-manager-gui.py
 ```
 
 ### 🏃‍➡️ Execute o script via terminal, passando o nome do pacote a ser instalado
