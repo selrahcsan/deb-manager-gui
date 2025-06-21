@@ -37,10 +37,22 @@ cd deb-manager-gui
 chmod +x deb-manager-gui.py
 ```
 
-### 🏃‍➡️ Execute o script via terminal, passando o nome do pacote a ser instalado
+### 🏃‍➡️ Execute o script via terminal com privilégios administrativos
 
-Exemplo de uso:
+#### Instalar pacotes
 
 ```bash
-pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY python3 $PWD/deb-manager-gui.py htop
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY $PWD/./deb-manager-gui --in htop neofetch
+```
+
+#### Remover pacotes
+
+```bash
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY $PWD/./deb-manager-gui --rm htop
+```
+
+#### Com mensagem personalizada
+
+```bash
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY python3 $PWD/./deb-manager-gui --in htop --tx "Instalando o utilitário Htop"
 ```
