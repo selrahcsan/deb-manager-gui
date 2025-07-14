@@ -1,0 +1,74 @@
+name: Build and Release APT Manager
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Git config
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Read and bump version
+        id: version
+        run: |
+          version=$(cat version.txt)
+          echo "Versão atual: $version"
+
+          IFS='.' read -r major minor patch <<< "$version"
+          patch=$((patch + 1))
+          new_version="$major.$minor.$patch"
+          echo $new_version > version.txt
+          echo "NEW_VERSION=$new_version" >> $GITHUB_ENV
+
+          git add version.txt
+          git commit -m "ci: bump version to $new_version"
+          git push
+
+      - name: Build .deb package
+        run: |
+          chmod +x deb-manager-gui
+
+          mkdir -p deb-manager-pkg/DEBIAN
+          mkdir -p deb-manager-pkg/usr/bin
+
+          cp deb-manager-gui deb-manager-pkg/usr/bin/
+          chmod 755 deb-manager-pkg/usr/bin/deb-manager-gui
+
+          cat <<EOF > deb-manager-pkg/DEBIAN/control
+          Package: deb-manager-gui
+          Version: ${{ env.NEW_VERSION }}
+          Section: utils
+          Priority: optional
+          Architecture: all
+          Depends: python3, python3-pyqt6, apt
+          Maintainer: Charles Santana
+          Description: Interface gráfica em PyQt6 para instalar/remover pacotes via APT
+          EOF
+
+          dpkg-deb --build deb-manager-pkg
+          mv deb-manager-pkg.deb deb-manager-gui_${{ env.NEW_VERSION }}.deb
+
+      - name: Create Tag
+        run: |
+          git tag -a "v${{ env.NEW_VERSION }}" -m "Versão v${{ env.NEW_VERSION }}"
+          git push origin "v${{ env.NEW_VERSION }}"
+
+      - name: Release on GitHub
+        uses: ncipollo/release-action@v1
+        with:
+          tag: v${{ env.NEW_VERSION }}
+          name: Deb Manager GUI v${{ env.NEW_VERSION }}
+          artifacts: deb-manager-gui_${{ env.NEW_VERSION }}.deb
+          token: ${{ secrets.GITHUB_TOKEN }}
