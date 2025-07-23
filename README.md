@@ -33,7 +33,7 @@ Este é um gerenciador gráfico de pacotes APT feito em Python usando **PyQt6**,
 ```bash
 git clone https://github.com/selrahcsan/deb-manager-gui.git
 cd deb-manager-gui
-chmod +x deb-manager-gui.py
+chmod +x deb-manager-gui
 ```
 
 ### ▶️ Executar com `pkexec`
@@ -76,5 +76,5 @@ pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY ./deb-manager-gui --in htop -
 Instalar o `rar` e `zip` com uma mensagem personalizada:
 
 ```bash
-pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY ./deb-manager-gui.py --in rar zip --tx "Instalando descompactadores"
+pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY ./deb-manager-gui --in rar zip --tx "Instalando descompactadores"
 ```
